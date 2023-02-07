@@ -59,5 +59,5 @@ Specifics:
   <img src="public/static_fe.png" width="60%"  />
 </p>
 <p align="center">
-  <img src="public/demo.gif" width="95%"  />
+  <img src="public/demo.gif" width="80%"  />
 </p>
