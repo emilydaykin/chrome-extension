@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Chrome Extension Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Criteria
+A Chrome extension front-end that displays:
+  1. a blank search bar on the shortcut (cmd +k) from any webpage, accepts input, and displays a blank card with smaller sub-cards inside it. Those sub-cards should be clickable to direct to a link, e.g. https://www.frontdoor.xyz/, and 
+  2. the newly opened page should KEEP showing the blank card in the exact state it was before clicking, meaning it is not a new blank page but the exact previous one imported to the new page.
 
-## Available Scripts
+Specifics:
+- Ensure that the shortcut does not conflict with any site that has a pre-existing use for that shortcut, e.g. Gmail (cmd + k is the shortcut for inserting a link while writing an email) - in these instances, give precedence to the web app.
+- Once a sub-card is clicked, and the URL opened - the main blank card should remain visible and keep showing on the newly opened URL in the exact state that it was prior to clicking the sub-card. E.g. if the extension was loaded whilst on Twitter and the user clicked on a sub-card from there, taking him to the pre-specified URL - the main blank card of the extension should remain visible on this new page in the same state as it was on Twitter.
 
-In the project directory, you can run:
+## Implementation:
+- ReactJS and Sass (BEM) to build and style this extension.
+- The `manifest.json` file is the most important file of this application (it records crucial metadata, defins resources, declares permissions and identifies which files to run in the background and on the page. It must be in the root dir)
+```json
+{
+  "manifest_version": 3,
+  "name": "Chrome Extension Challenge",
+  "description": "React Chrome Extension",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open"
+  },
+  "permissions": [
+    "scripting",
+    "tabs",
+    "activeTab",
+    "webNavigation"
+  ],
+  "commands": {
+    "run-extension": {
+      "suggested_key": {
+        "default": "Ctrl+K"
+      },
+      "description": "Run the extension on current page"
+    }
+  }
+}
+```
 
-### `npm start`
+## Installation:
+1. Clone this repo then run:
+    1.  `npm install`
+    2. `npm run build`
+2. Go to Chrome extensions ([chrome://extensions/](chrome://extensions/)) and make sure the 'Developer mode' is toggled ON.
+3. Upload the `build` to Chrome Extensions (the `build` folder in this repo that was generated in step 1(ii)).
+    - Click "Load unpacked", then select the `build` folder 
+4. Pin the extension to the browser to test it out by clicking on it or via `Cmd+K` (or `Ctrl+K`)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Notes 
+- Every time the codebase is updated, relaunch the extension by: 
+    - (i) runnning `npm run build`, then
+    - (ii) clicking the 'refresh' icon in the chrome extension
+- The keyboard shortcut (`Cmd+K`) can be modified in the `manifest.json` `commands`, or manually in the Chrome Extensions ([chrome://extensions/shortcuts](chrome://extensions/shortcuts))
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
