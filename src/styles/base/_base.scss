@@ -1,0 +1,15 @@
+// html {
+//   background-color: transparent; // cannot set this
+// }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  width: 550px; // chrome's maximum is 800px
+  height: 350px; // chrome's maximum is 600px
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #06304b;
+  color: #fff;
+  // border: 3px solid pink;
+}
