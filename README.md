@@ -11,7 +11,7 @@ Specifics:
 
 ## Implementation:
 - ReactJS and Sass (BEM) to build and style this extension.
-- The `manifest.json` file is the most important file of this application (it records crucial metadata, defins resources, declares permissions and identifies which files to run in the background and on the page. It must be in the root dir)
+- The `manifest.json` file is the most important file of this application (it records crucial metadata, defines resources, declares permissions and identifies which files to run in the background and on the page. It must be in the root dir)
 ```json
 {
   "manifest_version": 3,
@@ -48,7 +48,7 @@ Specifics:
     - Click "Load unpacked", then select the `build` folder 
 4. Pin the extension to the browser to test it out by clicking on it or via `Cmd+K` (or `Ctrl+K`)
 
-### Notes 
+#### Notes 
 - Every time the codebase is updated, relaunch the extension by: 
     - (i) runnning `npm run build`, then
     - (ii) clicking the 'refresh' icon in the chrome extension
