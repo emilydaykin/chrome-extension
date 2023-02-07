@@ -54,3 +54,10 @@ Specifics:
     - (ii) clicking the 'refresh' icon in the chrome extension
 - The keyboard shortcut (`Cmd+K`) can be modified in the `manifest.json` `commands`, or manually in the Chrome Extensions ([chrome://extensions/shortcuts](chrome://extensions/shortcuts))
 
+## Delivery (WIP):
+<p align="center">
+  <img src="public/static_fe.png" width="60%"  />
+</p>
+<p align="center">
+  <img src="public/demo.gif" width="95%"  />
+</p>
